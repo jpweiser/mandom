@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# This script will display a random man page to help build familiarity with
+# tools not previously encountered.
+
+# TODO parse path for user to include all possibilities
+# TODO add function to try command first and make sure there is a man page
+
+page=$(ls /usr/bin | shuf | head -1)
+man $page
