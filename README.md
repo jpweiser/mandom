@@ -1,4 +1,4 @@
-<h1>mandom</h1>
+mandom
 ======
 
 <h3>A program to view random UNIX man pages.</h3>
