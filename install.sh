@@ -1,14 +1,15 @@
 #!/bin/bash
 
-# This script will setup installation of mandom into a personal bin directory 
+# This script will setup installation of mandom into a personal bin directory
 # in the users home directory.
 
 # TODO exception handling
-# TODO user definable directory 
+# TODO user definable directory
 
 currentDirectory=$(pwd)
-mkdir ~/.bin
-cd ~/.bin
+destinationDirectory="~.bin"
+mkdir destinationDirectory
+cd destinationDirectory
 cp ${currentDirectory}/mandom .
 chmod +x mandom
 
