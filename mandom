@@ -4,11 +4,14 @@
 # tools not previously encountered.
 
 # TODO complete processing of user path
-# TODO add function to try command first and make sure there is a man page
 
 for i in {1..10}; do
-   pathLocation[$i]=$(echo $PATH | cut -d ":" -f $i)
+    pathLocation[$i]=$(echo $PATH | cut -d ":" -f $i)
 done
 
-page=$(ls ${pathLocation[1]} | shuf | head -1)
-man $page
+function man_up () {
+    page=$(ls ${pathLocation[1]} | shuf | head -1)
+    man $page 2> /dev/null || man_up
+}
+
+man_up
