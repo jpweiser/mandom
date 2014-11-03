@@ -10,8 +10,13 @@ for i in {1..10}; do
 done
 
 function man_up () {
-    page=$(ls ${pathLocation[1]} | shuf | head -1)
+    # Find a candidate command in the first directory of the user's PATH
+    # In current version, it is crucial that this is the main /bin of PATH.
+    page=$(ls ${pathLocation[i]} | shuf | head -1)
+    # If there is no man page for the command, send error to /dev/null and
+    # call the function again until one is found
     man $page 2> /dev/null || man_up
+    # TODO Add escape in case there are no candidates in directory
 }
 
 man_up
