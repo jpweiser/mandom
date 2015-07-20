@@ -13,7 +13,7 @@ function man_up () {
     page=$(ls ${pathLocation[i]} | shuf | head -1)
     echo $page >> .${i}.out
     if [[ $(ls ${pathLocation[i]} | wc -l) -ge $(wc -l < .${i}.out) ]]; then
-        i++
+        ((i++))
     fi
     # If there is no man page for the command, send error to /dev/null and
     # call the function again until one is found
