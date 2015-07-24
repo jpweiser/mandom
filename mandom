@@ -4,21 +4,23 @@
 # tools not previously encountered.
 
 
-for i in {1..10}; do
-    pathLocation[$i]=$(echo $PATH | cut -d ":" -f $i)
-done
+# Create an array containing all listings from user's path
+PATHLIST=($(echo $PATH | tr ":" " "))
 
+# man_up picks a random directory in the path, then a random script in the
+# directory. If there is a man page for the script, it displays it.
+# Otherwise, it tries again.
 function man_up () {
-    # Find a candidate command in the user's PATH
-    page=$(ls ${pathLocation[i]} | shuf | head -1)
-    echo $page >> .${i}.out
-    if [[ $(ls ${pathLocation[i]} | wc -l) -ge $(wc -l < .${i}.out) ]]; then
-        ((i++))
-    fi
+
+    # Pick a random index based on length of PATHLIST
+    curr=$(shuf -i0-$((${#PATHLIST[@]}-1)) -n1)
+
+    # Find a candidate script in directory corresponding to curr
+    page=$(ls ${PATHLIST[curr]} | shuf | head -1)
+
     # If there is no man page for the command, send error to /dev/null and
     # call the function again until one is found
     man $page 2> /dev/null || man_up
 }
 
-i=1
 man_up
