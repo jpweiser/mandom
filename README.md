@@ -14,7 +14,7 @@ To get a better idea of what tools are available, and what they do.
 
 <h4>To install:</h4>
 Currently there are two ways to install. One is to use the included shell
-script, install.sh -- This is a work in progress, and care should be taken prior
+script, install.sh -- This is a work in progress, and as such, care should be taken prior
 to running it to ensure it installs where and how you would like it to.
 
 Currently the install script assumes you want to create a new subdirectory to
