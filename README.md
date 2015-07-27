@@ -10,6 +10,7 @@ To get a better idea of what tools are available, and what they do.
 
 <h4> Requirements </h4>
 * Linux or Unix system running BASH.
+* GNU CoreUtils
 
 
 <h4>To install:</h4>
