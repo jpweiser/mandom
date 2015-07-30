@@ -6,7 +6,7 @@
 currentDirectory=$(pwd)
 # If you want to specify a destination directory for the install, do so on the next line
 destinationDirectory="~.bin"
-mkdir destinationDirectory
+mkdir destinationDirectory 2> /dev/null
 cd destinationDirectory
 cp ${currentDirectory}/mandom .
 chmod +x mandom
