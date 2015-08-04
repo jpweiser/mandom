@@ -6,9 +6,10 @@
 currentDirectory=$(pwd)
 # If you want to specify a destination directory for the install, do so on the next line
 destinationDirectory="~.bin"
+# Make the directory, if it does not exist
 mkdir destinationDirectory 2> /dev/null
 cd destinationDirectory
-cp ${currentDirectory}/mandom .
+mv ${currentDirectory}/mandom .
 chmod +x mandom
 
 echo "PATH=$PATH~/.bin" >> ~/.bashrc
